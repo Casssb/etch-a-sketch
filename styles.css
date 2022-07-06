@@ -9,6 +9,10 @@ body {
     height: 100%;
 }
 
+header {
+    text-align: center;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -17,9 +21,7 @@ main {
 }
 
 .grid-container {
-    min-width: 60vw;
-    max-width: 80vw;
-    min-height: 60vh;
-    max-height: 80vh;
+    height: 70vh;
+    width: 70vw;
     display: grid;
 }
