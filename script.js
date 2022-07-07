@@ -9,7 +9,11 @@ const warmbtn = document.querySelector("#warm");
 const coolbtn = document.querySelector("#cool");
 const neonbtn = document.querySelector("#neon");
 const clearbtn = document.querySelector("#clear");
+//colour picker global variable
+let penColor = 'blackAndWhite';
 
+
+//builds the base grid using slider default value
 function makeGrid(gridSize) {
   let box = document.createElement("div");
   box.classList.add("square");
@@ -21,34 +25,78 @@ function makeGrid(gridSize) {
   grid.appendChild(box);
 }
 
-//changes grid size as slider value changes
+//changes grid size as slider value changes (also calls square color choice)
 gridSizeSlider.addEventListener("change", () => {
   grid.innerHTML = "";
   gridSize = gridSizeSlider.value;
   for (let i = 0; i < gridSize * gridSize; i++) {
     makeGrid(gridSize);
-  }
+  };
+  colorChooser();
 });
+
+//logic to change color as you mouse over each square
+function colorChooser() {
+  const square = document.querySelectorAll('.square');
+  square.forEach(cell => {
+    cell.addEventListener('mouseover', (e) => {
+      if (penColor === 'blackAndWhite') {
+        const shadeColors = [
+          'snow',
+          "gainsboro",
+          "lightgray",
+          "silver",
+          "darkgray",
+          "gray",
+          "dimgray",
+          'black'
+        ];
+        let colorChoice = Math.floor(Math.random() * shadeColors.length);
+        e.currentTarget.style.backgroundColor = shadeColors[colorChoice];
+      } else if (penColor === 'warm') {
+        const warmColors = [
+          'orange',
+          "crimson",
+          "orangered",
+          "tomato",
+          "coral",
+          "gold",
+          "darkorange",
+          'yellow'
+        ];
+        let colorChoice = Math.floor(Math.random() * warmColors.length);
+        e.currentTarget.style.backgroundColor = warmColors[colorChoice];
+      } else {
+        const coolColors = [
+          'cyan',
+          "aquamarine",
+          "mediumturqoise",
+          "deepskyblue",
+          "royalblue",
+          "mediumslateblue",
+          "cornflowerblue",
+          'mediumaquamarine'
+        ];
+        let colorChoice = Math.floor(Math.random() * coolColors.length);
+        e.currentTarget.style.backgroundColor = coolColors[colorChoice];
+      }
+    })
+  });
+};
 
 //Click to activate black & white button
 blackAndWhite.addEventListener("click", () => {
-  let square = document.querySelectorAll('.square');
-  let shadeColors = [
-    'snow',
-    "gainsboro",
-    "lightgray",
-    "silver",
-    "darkgray",
-    "gray",
-    "dimgray",
-    'black'
-  ];
-  square.forEach((cell) =>
-    cell.addEventListener("mouseenter", (e) => {
-      let colorChoice = Math.floor(Math.random() * shadeColors.length);
-      e.currentTarget.style.backgroundColor = shadeColors[colorChoice];
-    })
-  );
+  penColor = 'blackAndWhite';
+});
+
+
+//Click to activate the warm button
+warmbtn.addEventListener("click", () => {
+  penColor = 'warm';
+});
+
+coolbtn.addEventListener("click", () => {
+  penColor = 'cool';
 });
 
 //clears grid but keeps current size
@@ -64,4 +112,6 @@ window.addEventListener("load", () => {
   for (let i = 0; i < gridSize * gridSize; i++) {
     makeGrid(gridSize);
   }
+  colorChooser();
 });
+
