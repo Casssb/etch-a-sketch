@@ -25,7 +25,7 @@ function makeGrid(gridSize) {
   grid.appendChild(box);
 }
 
-//changes grid size as slider value changes (also calls square color choice)
+//changes grid size as slider value changes (also calls square colour choice)
 gridSizeSlider.addEventListener("change", () => {
   grid.innerHTML = "";
   gridSize = gridSizeSlider.value;
@@ -84,13 +84,11 @@ function colorChooser() {
   });
 };
 
-//Click to activate black & white button
+//Click to chose colour
 blackAndWhite.addEventListener("click", () => {
   penColor = 'blackAndWhite';
 });
 
-
-//Click to activate the warm button
 warmbtn.addEventListener("click", () => {
   penColor = 'warm';
 });
@@ -105,6 +103,7 @@ clearbtn.addEventListener("click", () => {
   for (let i = 0; i < gridSize * gridSize; i++) {
     makeGrid(gridSize);
   }
+  colorChooser();
 });
 
 //loads basic grid on page load
@@ -115,3 +114,11 @@ window.addEventListener("load", () => {
   colorChooser();
 });
 
+
+//rules for slider
+for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+  e.style.setProperty('--value', e.value);
+  e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+  e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+  e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+}

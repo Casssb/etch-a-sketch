@@ -1,27 +1,296 @@
+:root {
+  --primary-dark: darkgray;
+  --primary-light: lightgray;
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;  
-    padding: 0;
-};
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  color: black;
 }
 
 header {
-    text-align: center;
+  text-align: center;
+  background-color: var(--primary-dark);
+  height: 5vh;
+}
+
+header h1 {
+  font-family: "Edu QLD Beginner", cursive;
+  font-size: x-large;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-light);
+  height: 90vh;
+}
+
+.btn-container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* button stylings */
+.btn-container button {
+  font-family: "Edu SA Beginner", cursive;
+  font-size: medium;
+}
+
+#black-and-white:hover {
+    background: linear-gradient(0.25turn, #fafcf9, #1a1918);
+    border:0.1rem solid black;
+    transform: scale(1.1);
+    border-radius: 10%;
+}
+
+#warm:hover {
+    background: linear-gradient(0.25turn, #f3cf06, #e42c13);
+    border:0.1rem solid black;
+    transform: scale(1.1);
+    border-radius: 10%;
+}
+
+#cool:hover {
+    background: linear-gradient(0.25turn, #4aaef1, rgb(42, 81, 165), #aa38c7);
+    border:0.1rem solid black;
+    transform: scale(1.1);
+    border-radius: 10%;
+}
+
+#clear:hover {
+    background: linear-gradient(0.25turn, #dad3d3, #f8f8f8);
+    border:0.1rem solid black;
+    transform: scale(1.1);
+    border-radius: 10%;
+}
+
+#neon:hover {
+    color: black;
+    background: #ff30cb;
+    box-shadow: 0 0 50px #d02ff8;
+    border: 0.1rem solid black;
+    transform: scale(1.1);
+    border-radius: 10%;
+}
+
+.slider-container {
+  font-family: "Edu SA Beginner", cursive;
+  font-size: medium;
+  padding: 1rem;
 }
 
 .grid-container {
-    height: 70vh;
-    width: 70vw;
-    display: grid;
+  height: 70vh;
+  width: 70vw;
+  display: grid;
+  background-color: white;
 }
+
+footer {
+  background-color: var(--primary-dark);
+  font-family: "Edu SA Beginner", cursive;
+  font-size: medium;
+  height: 5vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* I've lft this at the bottom due to the volume of CSS rules. I'd previously given the slider basic styles then found this repo*/
+
+
+/*generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler*/
+input[type=range].styled-slider {
+    -webkit-appearance: none;
+    background-color: var(--primary-light);
+  }
+  
+  /*progress support*/
+  input[type=range].styled-slider.slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 2em + var(--ratio) * (100% - 2em));
+  }
+  
+  input[type=range].styled-slider:focus {
+    outline: none;
+  }
+  
+  /*webkit*/
+  input[type=range].styled-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 1em;
+    background: linear-gradient(to right, #23272BE8, #909C90);
+    border: none;
+    box-shadow: 0 0 2px black;
+    margin-top: calc(max((1em - 1px - 1px) * 0.5,0px) - 2em * 0.5);
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-runnable-track {
+    height: 0.7em;
+    border: 1px solid #b2b2b2;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, #EFEFEF, #D7DBD7);
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb:hover {
+    background: linear-gradient(to right, #18518B, #9C2A9D);
+  }
+  
+  input[type=range].styled-slider:hover::-webkit-slider-runnable-track {
+    background: #e5e5e5;
+    border-color: #9a9a9a;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb:active {
+    background: linear-gradient(to right, #942FF9, #000780);
+  }
+  
+  input[type=range].styled-slider:active::-webkit-slider-runnable-track {
+    background: #f5f5f5;
+    border-color: #c1c1c1;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #8F78BF, #701E8F) 0/var(--sx) 100% no-repeat, linear-gradient(to right, #EFEFEF, #D7DBD7);
+  }
+  
+  input[type=range].styled-slider.slider-progress:hover::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #374656, #1D9D9C) 0/var(--sx) 100% no-repeat, #e5e5e5;
+  }
+  
+  input[type=range].styled-slider.slider-progress:active::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #4E5256, #360080) 0/var(--sx) 100% no-repeat, #f5f5f5;
+  }
+  
+  /*mozilla*/
+  input[type=range].styled-slider::-moz-range-thumb {
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 1em;
+    background: linear-gradient(to right, #23272BE8, #909C90);
+    border: none;
+    box-shadow: 0 0 2px black;
+  }
+  
+  input[type=range].styled-slider::-moz-range-track {
+    height: max(calc(1em - 1px - 1px),0px);
+    border: 1px solid #b2b2b2;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, #EFEFEF, #D7DBD7);
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb:hover {
+    background: linear-gradient(to right, #18518B, #9C2A9D);
+  }
+  
+  input[type=range].styled-slider:hover::-moz-range-track {
+    background: #e5e5e5;
+    border-color: #9a9a9a;
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb:active {
+    background: linear-gradient(to right, #942FF9, #000780);
+  }
+  
+  input[type=range].styled-slider:active::-moz-range-track {
+    background: #f5f5f5;
+    border-color: #c1c1c1;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-moz-range-track {
+    background: linear-gradient(to right, #8F78BF, #701E8F) 0/var(--sx) 100% no-repeat, linear-gradient(to right, #EFEFEF, #D7DBD7);
+  }
+  
+  input[type=range].styled-slider.slider-progress:hover::-moz-range-track {
+    background: linear-gradient(to right, #374656, #1D9D9C) 0/var(--sx) 100% no-repeat, #e5e5e5;
+  }
+  
+  input[type=range].styled-slider.slider-progress:active::-moz-range-track {
+    background: linear-gradient(to right, #4E5256, #360080) 0/var(--sx) 100% no-repeat, #f5f5f5;
+  }
+  
+  /*ms*/
+  input[type=range].styled-slider::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb {
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 1em;
+    background: linear-gradient(to right, #23272BE8, #909C90);
+    border: none;
+    box-shadow: 0 0 2px black;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-track {
+    height: 1em;
+    border-radius: 0.5em;
+    background: linear-gradient(to right, #EFEFEF, #D7DBD7);
+    border: 1px solid #b2b2b2;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb:hover {
+    background: linear-gradient(to right, #18518B, #9C2A9D);
+  }
+  
+  input[type=range].styled-slider:hover::-ms-track {
+    background: #e5e5e5;
+    border-color: #9a9a9a;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb:active {
+    background: linear-gradient(to right, #942FF9, #000780);
+  }
+  
+  input[type=range].styled-slider:active::-ms-track {
+    background: #f5f5f5;
+    border-color: #c1c1c1;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+    height: max(calc(1em - 1px - 1px),0px);
+    border-radius: 0.5em 0 0 0.5em;
+    margin: -1px 0 -1px -1px;
+    background: linear-gradient(to right, #8F78BF, #701E8F);
+    border: 1px solid #b2b2b2;
+    border-right-width: 0;
+  }
+  
+  input[type=range].styled-slider.slider-progress:hover::-ms-fill-lower {
+    background: linear-gradient(to right, #374656, #1D9D9C);
+    border-color: #9a9a9a;
+  }
+  
+  input[type=range].styled-slider.slider-progress:active::-ms-fill-lower {
+    background: linear-gradient(to right, #4E5256, #360080);
+    border-color: #c1c1c1;
+  }
