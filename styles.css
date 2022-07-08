@@ -15,6 +15,7 @@ body {
   color: black;
 }
 
+/* header */
 header {
   text-align: center;
   background-color: var(--primary-dark);
@@ -27,6 +28,7 @@ header h1 {
   font-size: x-large;
 }
 
+/* main section */
 main {
   display: flex;
   flex-direction: column;
@@ -65,14 +67,7 @@ main {
 }
 
 #cool:hover {
-    background: linear-gradient(0.25turn, #4aaef1, rgb(42, 81, 165), #aa38c7);
-    border:0.1rem solid black;
-    transform: scale(1.1);
-    border-radius: 10%;
-}
-
-#clear:hover {
-    background: linear-gradient(0.25turn, #dad3d3, #f8f8f8);
+    background: linear-gradient(0.25turn, #4aaef1, rgb(74, 120, 218), #ce6ee6);
     border:0.1rem solid black;
     transform: scale(1.1);
     border-radius: 10%;
@@ -80,13 +75,29 @@ main {
 
 #neon:hover {
     color: black;
-    background: #ff30cb;
+    background: linear-gradient(0.25turn, #f003f8, #9113da);
     box-shadow: 0 0 50px #d02ff8;
     border: 0.1rem solid black;
     transform: scale(1.1);
     border-radius: 10%;
 }
 
+#erase:hover {
+  background: linear-gradient(0.25turn, #dad3d3, #f8f8f8);
+  border:0.1rem solid black;
+  transform: scale(1.1);
+  border-radius: 10%;
+}
+
+
+#clear:hover {
+  background: linear-gradient(0.25turn, #c4c2c2, #999999);
+  border:0.1rem solid black;
+  transform: scale(1.1);
+  border-radius: 10%;
+}
+
+/* base slider & gid container stylingss */
 .slider-container {
   font-family: "Edu SA Beginner", cursive;
   font-size: medium;
@@ -100,6 +111,13 @@ main {
   background-color: white;
 }
 
+.neon-square {
+  box-shadow: 0 0 10px #d02ff8;
+  border: 0.1rem solid black;
+  transform: scale(1.1);
+}
+
+/* footer stylings */
 footer {
   background-color: var(--primary-dark);
   font-family: "Edu SA Beginner", cursive;

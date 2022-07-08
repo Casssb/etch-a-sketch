@@ -8,6 +8,7 @@ const blackAndWhite = document.querySelector("#black-and-white");
 const warmbtn = document.querySelector("#warm");
 const coolbtn = document.querySelector("#cool");
 const neonbtn = document.querySelector("#neon");
+const erasebtn = document.querySelector('#erase');
 const clearbtn = document.querySelector("#clear");
 //colour picker global variable
 let penColor = 'blackAndWhite';
@@ -39,20 +40,12 @@ gridSizeSlider.addEventListener("change", () => {
 function colorChooser() {
   const square = document.querySelectorAll('.square');
   square.forEach(cell => {
+    cell.count = 0.1;
     cell.addEventListener('mouseover', (e) => {
       if (penColor === 'blackAndWhite') {
-        const shadeColors = [
-          'snow',
-          "gainsboro",
-          "lightgray",
-          "silver",
-          "darkgray",
-          "gray",
-          "dimgray",
-          'black'
-        ];
-        let colorChoice = Math.floor(Math.random() * shadeColors.length);
-        e.currentTarget.style.backgroundColor = shadeColors[colorChoice];
+        e.currentTarget.style.backgroundColor = `rgba(0, 0, 0,${cell.count})`;
+        e.currentTarget.count += 0.1;
+        e.currentTarget.classList.remove('neon-square');
       } else if (penColor === 'warm') {
         const warmColors = [
           'orange',
@@ -66,7 +59,9 @@ function colorChooser() {
         ];
         let colorChoice = Math.floor(Math.random() * warmColors.length);
         e.currentTarget.style.backgroundColor = warmColors[colorChoice];
-      } else {
+        e.currentTarget.classList.remove('neon-square');
+        e.currentTarget.style.opacity = 1;
+      } else if (penColor === 'cool'){
         const coolColors = [
           'cyan',
           "aquamarine",
@@ -79,6 +74,24 @@ function colorChooser() {
         ];
         let colorChoice = Math.floor(Math.random() * coolColors.length);
         e.currentTarget.style.backgroundColor = coolColors[colorChoice];
+        e.currentTarget.classList.remove('neon-square');
+        e.currentTarget.style.opacity = 1;
+      } else if (penColor === 'neon') {
+        const neonColors = [
+          'violet',
+          "magenta",
+          "fuchsia",
+          "orchid",
+          "darkviolet",
+        ];
+        let colorChoice = Math.floor(Math.random() * neonColors.length);
+        e.currentTarget.style.backgroundColor = neonColors[colorChoice];
+        e.currentTarget.classList.add('neon-square');
+        e.currentTarget.style.opacity = 1;
+      } else if (penColor === 'white') {
+        e.currentTarget.style.backgroundColor = 'white';
+        e.currentTarget.classList.remove('neon-square')
+        e.currentTarget.style.opacity = 1;
       }
     })
   });
@@ -97,6 +110,14 @@ coolbtn.addEventListener("click", () => {
   penColor = 'cool';
 });
 
+neonbtn.addEventListener("click", () => {
+  penColor = 'neon';
+});
+
+erasebtn.addEventListener("click", () => {
+  penColor = 'white';
+});
+
 //clears grid but keeps current size
 clearbtn.addEventListener("click", () => {
   grid.innerHTML = "";
@@ -104,7 +125,6 @@ clearbtn.addEventListener("click", () => {
     makeGrid(gridSize);
   }
   colorChooser();
-  mobileColorChooser();
 });
 
 //loads basic grid on page load
@@ -126,50 +146,5 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
 };
 
 //logic to allow mobile users to draw
-function mobileColorChooser() {
-  const square = document.querySelectorAll('.square');
-  square.forEach(cell => {
-    cell.addEventListener('touchstart', (e) => {
-      if (penColor === 'blackAndWhite') {
-        const shadeColors = [
-          'snow',
-          "gainsboro",
-          "lightgray",
-          "silver",
-          "darkgray",
-          "gray",
-          "dimgray",
-          'black'
-        ];
-        let colorChoice = Math.floor(Math.random() * shadeColors.length);
-        e.currentTarget.style.backgroundColor = shadeColors[colorChoice];
-      } else if (penColor === 'warm') {
-        const warmColors = [
-          'orange',
-          "crimson",
-          "orangered",
-          "tomato",
-          "coral",
-          "gold",
-          "darkorange",
-          'yellow'
-        ];
-        let colorChoice = Math.floor(Math.random() * warmColors.length);
-        e.currentTarget.style.backgroundColor = warmColors[colorChoice];
-      } else {
-        const coolColors = [
-          'cyan',
-          "aquamarine",
-          "mediumturqoise",
-          "deepskyblue",
-          "royalblue",
-          "mediumslateblue",
-          "cornflowerblue",
-          'mediumaquamarine'
-        ];
-        let colorChoice = Math.floor(Math.random() * coolColors.length);
-        e.currentTarget.style.backgroundColor = coolColors[colorChoice];
-      }
-    })
-  });
-};
+
+
