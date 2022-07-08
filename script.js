@@ -60,7 +60,6 @@ function colorChooser() {
         let colorChoice = Math.floor(Math.random() * warmColors.length);
         e.currentTarget.style.backgroundColor = warmColors[colorChoice];
         e.currentTarget.classList.remove('neon-square');
-        e.currentTarget.style.opacity = 1;
       } else if (penColor === 'cool'){
         const coolColors = [
           'cyan',
@@ -75,7 +74,6 @@ function colorChooser() {
         let colorChoice = Math.floor(Math.random() * coolColors.length);
         e.currentTarget.style.backgroundColor = coolColors[colorChoice];
         e.currentTarget.classList.remove('neon-square');
-        e.currentTarget.style.opacity = 1;
       } else if (penColor === 'neon') {
         const neonColors = [
           'violet',
@@ -87,11 +85,9 @@ function colorChooser() {
         let colorChoice = Math.floor(Math.random() * neonColors.length);
         e.currentTarget.style.backgroundColor = neonColors[colorChoice];
         e.currentTarget.classList.add('neon-square');
-        e.currentTarget.style.opacity = 1;
       } else if (penColor === 'white') {
         e.currentTarget.style.backgroundColor = 'white';
         e.currentTarget.classList.remove('neon-square')
-        e.currentTarget.style.opacity = 1;
       }
     })
   });
