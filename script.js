@@ -129,7 +129,7 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
 function mobileColorChooser() {
   const square = document.querySelectorAll('.square');
   square.forEach(cell => {
-    cell.addEventListener('touchmove', (e) => {
+    cell.addEventListener('touchstart', (e) => {
       if (penColor === 'blackAndWhite') {
         const shadeColors = [
           'snow',
