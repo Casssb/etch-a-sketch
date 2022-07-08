@@ -21,6 +21,7 @@ header {
   background-color: var(--primary-dark);
   height: 5vh;
   padding: 0.3rem;
+  border-bottom: 0.2rem solid rgb(26, 25, 25);
 }
 
 header h1 {
@@ -36,6 +37,7 @@ main {
   justify-content: center;
   background-color: var(--primary-light);
   height: 90vh;
+  border-bottom: 0.2rem solid rgb(26, 25, 25);
 }
 
 .btn-container {
