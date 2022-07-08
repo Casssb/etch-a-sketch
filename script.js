@@ -104,6 +104,7 @@ clearbtn.addEventListener("click", () => {
     makeGrid(gridSize);
   }
   colorChooser();
+  mobileColorChooser();
 });
 
 //loads basic grid on page load
@@ -112,6 +113,7 @@ window.addEventListener("load", () => {
     makeGrid(gridSize);
   }
   colorChooser();
+  mobileColorChooser();
 });
 
 
@@ -121,4 +123,53 @@ for (let e of document.querySelectorAll('input[type="range"].slider-progress')) 
   e.style.setProperty('--min', e.min == '' ? '0' : e.min);
   e.style.setProperty('--max', e.max == '' ? '100' : e.max);
   e.addEventListener('input', () => e.style.setProperty('--value', e.value));
-}
+};
+
+//logic to allow mobile users to draw
+function mobileColorChooser() {
+  const square = document.querySelectorAll('.square');
+  square.forEach(cell => {
+    cell.addEventListener('touchmove', (e) => {
+      if (penColor === 'blackAndWhite') {
+        const shadeColors = [
+          'snow',
+          "gainsboro",
+          "lightgray",
+          "silver",
+          "darkgray",
+          "gray",
+          "dimgray",
+          'black'
+        ];
+        let colorChoice = Math.floor(Math.random() * shadeColors.length);
+        e.currentTarget.style.backgroundColor = shadeColors[colorChoice];
+      } else if (penColor === 'warm') {
+        const warmColors = [
+          'orange',
+          "crimson",
+          "orangered",
+          "tomato",
+          "coral",
+          "gold",
+          "darkorange",
+          'yellow'
+        ];
+        let colorChoice = Math.floor(Math.random() * warmColors.length);
+        e.currentTarget.style.backgroundColor = warmColors[colorChoice];
+      } else {
+        const coolColors = [
+          'cyan',
+          "aquamarine",
+          "mediumturqoise",
+          "deepskyblue",
+          "royalblue",
+          "mediumslateblue",
+          "cornflowerblue",
+          'mediumaquamarine'
+        ];
+        let colorChoice = Math.floor(Math.random() * coolColors.length);
+        e.currentTarget.style.backgroundColor = coolColors[colorChoice];
+      }
+    })
+  });
+};

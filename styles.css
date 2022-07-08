@@ -19,7 +19,7 @@ header {
   text-align: center;
   background-color: var(--primary-dark);
   height: 5vh;
-  padding: 0.2rem;
+  padding: 0.3rem;
 }
 
 header h1 {
@@ -110,7 +110,7 @@ footer {
 }
 
 /* I've lft this at the bottom due to the volume of CSS rules. I'd previously given the slider basic styles then found this repo*/
-
+/* I did modify a fair few of these but the app was a great starting point! */
 
 /*generated with Input range slider CSS style generator (version 20211225)
 https://toughengineer.github.io/demo/slider-styler*/
