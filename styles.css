@@ -1,6 +1,6 @@
 :root {
-  --primary-dark: darkgray;
-  --primary-light: lightgray;
+  --primary-dark: rgb(86, 106, 116);
+  --primary-light: rgb(162, 186, 206);
 }
 
 * {
@@ -111,6 +111,7 @@ main {
   display: grid;
   background-color: white;
   border: 0.2rem solid rgb(24, 36, 36);
+  box-shadow: 0.4rem 0.5rem 0.5rem var(--primary-dark);
 }
 
 .neon-square {
