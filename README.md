@@ -1,8 +1,12 @@
-# etch-a-sketch
+# Etch-A-Sketch
 
 My second project via The Odin Project curriculum using vanilla JS, HTML & CSS.
 
 [Check it out here!](https://casssb.github.io/etch-a-sketch/) :point_left:
+
+![Image of live version](./img/etch-a-sketch.PNG)
+
+##Thoughts
 
 My main focuses here were trying to keep using as much vanilla CSS as possible and make everything as responsive as possbile without using media queries. (I've been learning Tailwind & Bootstrap recently but wanted to stick to using vanilla flexbox & grid as I get the feeling being good with these should help me even more with the CSS Libraries)
 
